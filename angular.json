@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pokemon-list-app"
+    }
+  },
+  "defaultProject": "pokemon-list-app",
+  "cli": {
+    "analytics": false
+  }
 }

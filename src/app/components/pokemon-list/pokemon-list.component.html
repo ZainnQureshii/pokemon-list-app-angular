@@ -1,0 +1,29 @@
+<ng-container *ngIf="!isLoading; else showLoading">
+  <div class="list">
+    <div class="row" *ngIf="pokemons.length > 0">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 pokemon-parent" *ngFor="let pokemon of pokemons">
+        <div class="pokemon">
+          <div class="image-block">
+            <img [src]="pokemon.sprites.other.dream_world.front_default" alt="pokemon-img">
+          </div>
+          <div class="text-block">
+            <div class="name">{{ pokemon.name }}</div>
+            <button [routerLink]="'/pokemon/'+pokemon.id">Show More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="pagination">
+    <button [disabled]="!pokemonsObj?.previous" (click)="goToPage(pokemonsObj?.previous)">Previous</button>
+    <button [disabled]="!pokemonsObj?.next" (click)="goToPage(pokemonsObj?.next)">Next</button>
+  </div>
+</ng-container>
+
+<ng-template #showLoading>
+  <div class="loader">
+    <img src="../../../assets/images/gif-loader.gif" />
+  </div>
+</ng-template>

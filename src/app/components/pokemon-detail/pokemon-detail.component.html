@@ -1,0 +1,43 @@
+<div class="pokemon-wrapper">
+  <ng-container *ngIf="!isLoading; else showLoading">
+    <div class="pokemon">
+      <div class="upper-block">
+        <div class="img-block">
+          <img [src]="pokemon.sprites.other.dream_world.front_default" alt="pokemon-img">
+        </div>
+        <div class="text-block">
+          <div>
+            <label>Name:</label>
+            <span>{{ pokemon.name }}</span>
+          </div>
+          <div>
+            <label>Species:</label>
+            <span>{{ pokemon.species.name }}</span>
+          </div>
+          <div>
+            <label>Weight:</label>
+            <span>{{ pokemon.weight }} lbs</span>
+          </div>
+          <div>
+            <label>Height:</label>
+            <span>{{ pokemon.height }} inches</span>
+          </div>
+          <div>
+            <label>Abilities:</label>
+            <span *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }},</span>
+          </div>
+          <div class="evolution-chain">
+            <label>Evolution Chain:</label>
+            <span *ngFor="let pokemon of pokemon.evolutionChain"> <code>=></code> {{ pokemon }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #showLoading>
+  <div class="loader">
+    <img src="../../../assets/images/gif-loader.gif" />
+  </div>
+</ng-template>
