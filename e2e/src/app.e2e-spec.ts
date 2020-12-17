@@ -20,7 +20,7 @@ describe('workspace-project App', () => {
     expect(element.length).toEqual(20);    
   });
   
-  it('should click on pokemon show more button', async (callback) => {
+  it('should click on pokemon\'s Show More button', async (callback) => {
     let css = 'app-pokemon-list .list .row .pokemon-parent .text-block button'
     let firstElement = page.getAllElements(css).first();
     await firstElement.click()
